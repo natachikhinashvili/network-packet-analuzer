@@ -24,3 +24,13 @@ class Getconfile:
                         return line.split('=')[1]
         except NotImplementedError:
             print("logfile field is not implemented in conf file")
+        
+    def getruntimes(conf_file):
+        try:
+            with open(conf_file, "r") as file:
+                lines = file.readlines()
+                for line in lines:
+                    if 'runtimes=' in line:
+                        return line.split('=')[1]
+        except NotImplementedError:
+            print("runtimes field is not implemented in conf file")
