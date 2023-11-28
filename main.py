@@ -1,17 +1,17 @@
 import pcapy
 
-from getInterface import GetInterface
 from UnpackHeader import UnpackHeader
+from getconfile import Getconfile
 from DecodeInfo import DecodeInfo
 
 from upload_to_gcs import Upload_to_gcs
 from write_to_file import Write_to_file
+from SetInterface import SetInterface
 
 
 def main():
-        interface = GetInterface.read_interface(GetInterface.get_interface())
-        print(interface)
-        cap = pcapy.open_live("wlp0s20f3", 65536, 1, 0)
+        
+        cap = pcapy.open_live(SetInterface.read_interface(Getconfile.get_conffile()), 65536, 1, 0)
         while True:
 
             header, packet = cap.next()

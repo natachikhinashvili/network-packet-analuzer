@@ -2,8 +2,8 @@ import argparse
 from dataclasses import dataclass
 
 @dataclass
-class GetInterface:
-    def get_interface():
+class Getconfile:
+    def get_conffile():
         try:
             parser = argparse.ArgumentParser()
             parser.add_argument('config_file')
@@ -14,12 +14,13 @@ class GetInterface:
         except FileNotFoundError:
             print('File not implemented')
 
-    def read_interface(conf_file):
+    
+    def getlogfile(conf_file):
         try:
             with open(conf_file, "r") as file:
                 lines = file.readlines()
                 for line in lines:
-                    if 'interface=' in line:
+                    if 'logfile=' in line:
                         return line.split('=')[1]
         except NotImplementedError:
-            print("Interface field is not implemented in conf file")
+            print("logfile field is not implemented in conf file")

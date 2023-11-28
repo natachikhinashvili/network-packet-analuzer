@@ -1,10 +1,19 @@
 from dataclasses import dataclass
 from FilterByArp import FilterByArp
 
+from SetInterface import SetInterface
+
 OUTPUT_FILE_PREFIX = "output"
 MAX_LINES_PER_FILE = 10000
 file_counter = 0
-filename = f"{OUTPUT_FILE_PREFIX}_{file_counter}.txt"
+
+filename=""
+
+if SetInterface.getlogfile(SetInterface.get_conffile()):
+    filename = SetInterface.getlogfile(SetInterface.get_conffile())
+else:
+    filename = f"{OUTPUT_FILE_PREFIX}_{file_counter}.txt"
+
 line_count = 0
 
 @dataclass
@@ -16,7 +25,10 @@ class Write_to_file:
 
         if line_count == 0 or line_count % MAX_LINES_PER_FILE == 0:
             file_counter += 1
-            filename = f"{OUTPUT_FILE_PREFIX}_{file_counter}.txt"
+            if SetInterface.getlogfile(SetInterface.get_conffile()):
+                filename = f"{SetInterface.getlogfile(SetInterface.get_conffile())}_{file_counter}.txt"
+            else:
+                filename = f"{OUTPUT_FILE_PREFIX}_{file_counter}.txt"
             with open(filename, "w") as file:
                 file.write(line)
         else:
