@@ -1,23 +1,23 @@
-from google.cloud import storage
 import os
-from dataclasses import dataclass
+import re
+
+from google.cloud import storage
+
 from dataclasses import dataclass
 from FilterByArp import FilterByArp
-import re
 from getconfile import Getconfile
 
-OUTPUT_FILE_PREFIX = "output"
-MAX_LINES_PER_FILE = 10000
+outputfile = "output"
+max_lines = 10000
 file_counter = 0
-
+line_count = 0
 filename=""
 
 if Getconfile.getlogfile(Getconfile.get_conffile()):
     filename = Getconfile.getlogfile(Getconfile.get_conffile())
 else:
-    filename = f"{OUTPUT_FILE_PREFIX}_{file_counter}.txt"
+    filename = f"{outputfile}_{file_counter}.txt"
 
-line_count = 0
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/nata/Downloads/networkpacketanalyzator-b1756629b74a.json"
 
@@ -38,14 +38,14 @@ class ManageData:
         global line_count
         global filename
 
-        if line_count == 0 or line_count % MAX_LINES_PER_FILE == 0:
+        if line_count == 0 or line_count % max_lines == 0:
             file_counter += 1
             if Getconfile.getlogfile(Getconfile.get_conffile()):
                 original= Getconfile.getlogfile(Getconfile.get_conffile())
                 sanitizedname=re.sub(r'[^\w.-]', '_', original)
                 filename = f"{sanitizedname}_{file_counter}.txt"
             else:
-                filename = f"{OUTPUT_FILE_PREFIX}_{file_counter}.txt"
+                filename = f"{outputfile}_{file_counter}.txt"
             with open(filename, "w") as file:
                 file.write(line)
         else:

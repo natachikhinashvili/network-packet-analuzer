@@ -1,10 +1,8 @@
 import pcapy
 
 from getconfile import Getconfile
-
 from SetInterface import SetInterface
 from PycapParser import Parsepycap
-
 from Managedata import ManageData
 
 
