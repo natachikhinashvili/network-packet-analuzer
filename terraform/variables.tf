@@ -1,6 +1,6 @@
 variable "serviceacc" {
     description = "The path to service account json file."
-    default = "file(/home/nata/Downloads/networkpacketanalyzator-b1756629b74a.json)"
+    default = "/home/nata/Downloads/networkpacketanalyzator-b1756629b74a.json"
 }
 variable "region" {
     description = "The AWS region to deploy resources."
