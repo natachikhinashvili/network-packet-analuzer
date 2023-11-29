@@ -1,4 +1,4 @@
- variable "serviceacc" {
+variable "serviceacc" {
     description = "The path to service account json file."
     default = "file(/home/nata/Downloads/networkpacketanalyzator-b1756629b74a.json)"
 }

@@ -1,0 +1,3 @@
+Interface wlp0s20f3, Timestamp: (1701242828, 525551), Packet Length: 4517 bytes ,
+ src mac: 5:b, dst_mac: 0:b, arp operation: ,
+ src ip: 103.6.117.82.104.46, dst ip: 15.6.1.187.179.166 

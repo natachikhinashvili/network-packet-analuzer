@@ -1,0 +1,27 @@
+Interface wlp0s20f3, Timestamp: (1701242828, 525587), Packet Length: 66 bytes ,
+ src mac: 0:b, dst_mac: 5:b, arp operation: ,
+ src ip: 64.6.239.202.172.16, dst ip: 162.226.179.166.1.187 
+Interface wlp0s20f3, Timestamp: (1701242828, 529812), Packet Length: 224 bytes ,
+ src mac: 0:b, dst_mac: 5:b, arp operation: ,
+ src ip: 64.6.239.43.172.16, dst ip: 162.226.179.166.1.187 
+Interface wlp0s20f3, Timestamp: (1701242828, 610469), Packet Length: 155 bytes ,
+ src mac: f:b, dst_mac: 6:a, arp operation: ,
+ src ip: 254.128.0.0.0.0, dst ip: 148.99.112.242.125.205 
+Interface wlp0s20f3, Timestamp: (1701242828, 610470), Packet Length: 135 bytes ,
+ src mac: f:b, dst_mac: 6:a, arp operation: ,
+ src ip: 255.17.44.47.172.16, dst ip: 0.251.20.233.20.233 
+Interface wlp0s20f3, Timestamp: (1701242828, 610471), Packet Length: 56 bytes ,
+ src mac: f:f, dst_mac: a:b, arp operation: Request,
+ src ip: 20.212.36.147.178.171, dst ip: 0.0.0.0.0.0 
+Interface wlp0s20f3, Timestamp: (1701242828, 620950), Packet Length: 272 bytes ,
+ src mac: f:b, dst_mac: 6:a, arp operation: ,
+ src ip: 254.128.0.0.0.0, dst ip: 148.99.112.242.125.205 
+Interface wlp0s20f3, Timestamp: (1701242828, 620950), Packet Length: 1370 bytes ,
+ src mac: f:b, dst_mac: b:4, arp operation: ,
+ src ip: 255.17.89.61.172.16, dst ip: 0.251.20.233.20.233 
+Interface wlp0s20f3, Timestamp: (1701242828, 620955), Packet Length: 193 bytes ,
+ src mac: f:b, dst_mac: 6:a, arp operation: ,
+ src ip: 255.17.4.13.172.16, dst ip: 0.251.20.233.20.233 
+Interface wlp0s20f3, Timestamp: (1701242828, 631126), Packet Length: 372 bytes ,
+ src mac: f:b, dst_mac: 2:c, arp operation: ,
+ src ip: 254.128.0.0.0.0, dst ip: 71.250.214.95.15.22 

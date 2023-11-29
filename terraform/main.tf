@@ -19,13 +19,3 @@ resource "google_project_iam_binding" "project_binding" {
     "serviceAccount:${var.serviceacc}",
   ]
 }
-resource "google_service_account" "my_service_account" {
-  account_id   = var.serviceacc
-  display_name = "My Service Account"
-  project      = var.projectname
-}
-
-resource "google_service_account_key" "my_key" {
-  service_account_id = google_service_account.my_service_account.account_id
-  private_key_type   = "json"
-}

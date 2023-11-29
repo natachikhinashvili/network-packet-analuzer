@@ -1,26 +1,29 @@
 import pcapy
 
-from getconfile import Getconfile
-from SetInterface import SetInterface
+from Config import Config
 from PycapParser import Parsepycap
 from Managedata import ManageData
 
 
 def main():
-        interface = SetInterface.read_interface(Getconfile.get_conffile())
-        runtimes =  int(Getconfile.getruntimes(Getconfile.get_conffile()))
-        cap = pcapy.open_live(interface, 65536, 1, 0)
-        myfile = ""
-        runtimecount = 0
-        while runtimecount < runtimes:
+    config = Config()
+    config_file = config.get_conf_file()
+    interface = config.read_interface(config_file)
+    runtimes =  int(config.get_run_times(config_file))
+    cap = pcapy.open_live(interface, 65536, 1, 0)
+    myfile = ""
+    manageData = ManageData()
 
-            header, packet = cap.next()
+    runtimecount = 0
+    while runtimecount < runtimes:
 
-            unpacked = Parsepycap.unpackheader(packet)
-            decoded = Parsepycap.decodeInfo(*unpacked)
-            myfile = ManageData.write_to_file("Interface {}, Timestamp: {}, Packet Length: {} bytes ,\n src mac: {}, dst_mac: {}, arp operation: {},\n src ip: {}, dst ip: {} \n".format(interface, header.getts(), header.getlen(), *decoded))
-            runtimecount+=1
-        ManageData.upload_to_gcs(myfile)
+        header, packet = cap.next()
+
+        unpacked = Parsepycap.unpackheader(packet)
+        decoded = Parsepycap.decodeInfo(*unpacked)
+        myfile = manageData.write_to_file("Interface {}, Timestamp: {}, Packet Length: {} bytes ,\n src mac: {}, dst_mac: {}, arp operation: {},\n src ip: {}, dst ip: {} \n".format(interface, header.getts(), header.getlen(), *decoded))
+        runtimecount+=1
+    manageData.upload_to_gcs(myfile)
 
 if __name__ == '__main__':
     main()
