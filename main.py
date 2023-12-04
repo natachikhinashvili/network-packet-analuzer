@@ -20,7 +20,6 @@ logger.addHandler(file_handler)
 
 def stop_handler(signum, frame):
     print("signum {}, frame: {}".format(signum, frame))
-    sys.exit()
 
 signal.signal(signal.SIGINT, stop_handler)
 
@@ -36,7 +35,6 @@ def main():
 
     runtimecount = 0
     while notdone:
-        print('here')
         header, packet = cap.next()
 
         unpacked = Parsepycap.unpackheader(packet)

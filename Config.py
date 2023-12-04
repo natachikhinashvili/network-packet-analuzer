@@ -19,7 +19,7 @@ class Config:
         try:
             config.read(conf_file)
             sections = config.sections()
-            return config[sections[0]][sections[0]]
+            return config[sections['interface']][sections['interface']]
         except NotImplementedError:
             print("Interface field is not implemented in conf file")
     
@@ -27,7 +27,7 @@ class Config:
         try:
             config.read(conf_file)
             sections = config.sections()
-            return config[sections[1]][sections[1]]
+            return config[sections['logging']][sections['logging']]
         except NotImplementedError:
             print("logfile field is not implemented in conf file")
         
@@ -35,6 +35,6 @@ class Config:
         try:
             config.read(conf_file)
             sections = config.sections()
-            return config[sections[2]][sections[2]]
+            return config[sections['runtimes']][sections['runtimes']]
         except NotImplementedError:
             print("runtimes field is not implemented in conf file")
