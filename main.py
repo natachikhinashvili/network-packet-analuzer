@@ -8,8 +8,6 @@ from Managedata import ManageData
 from loggerhandlers import logger
 from signalhandler import stop_handler
 
-signal.signal(signal.SIGINT, stop_handler)
-
 def main():
     config = Config()
     config_file = config.get_conf_file()
@@ -22,6 +20,7 @@ def main():
 
     runtimecount = 0
     while notdone:
+        signal.signal(signal.SIGINT, stop_handler, notdone)
         header, packet = cap.next()
 
         unpacked = Parsepycap.unpackheader(packet)
