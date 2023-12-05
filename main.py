@@ -1,25 +1,12 @@
 import pcapy
-import logging
 import signal
-import sys
 import keyboard
 
 from Config import Config
 from PycapParser import Parsepycap
 from Managedata import ManageData
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
-formatter = logging.Formatter('%{levelname}s:%(name)s:%(message)s')
-
-file_handler = logging.FileHandler('analyzer_log.log')
-file_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-
-def stop_handler(signum, frame):
-    print("signum {}, frame: {}".format(signum, frame))
+from loggerhandlers import logger
+from signalhandler import stop_handler
 
 signal.signal(signal.SIGINT, stop_handler)
 
